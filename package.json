@@ -12,7 +12,7 @@
   ],
   "main": "lib/LoadingOverlay.js",
   "scripts": {
-    "build": "npm run build-cjs && npm run build-es6 && rimraf umd && npm run build-umd && npm run build-min && build-css",
+    "build": "npm run build-cjs && npm run build-es6 && rimraf umd && npm run build-umd && npm run build-min && npm run build-css",
     "build-cjs": "rimraf lib && babel ./src -d lib",
     "build-es6": "rimraf es6 && babel ./src -d es6 --blacklist=es6.modules",
     "build-umd": "NODE_ENV=development webpack src/LoadingOverlay.js umd/LoadingOverlay.js",
