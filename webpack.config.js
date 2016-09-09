@@ -14,6 +14,7 @@ var config = {
       commonjs: 'react',
       amd: 'react'
     },
+    'react/lib/ReactCSSTransitionGroup': 'ReactCSSTransitionGroup',
     'react-dom': 'ReactDOM'
   },
   module : {
