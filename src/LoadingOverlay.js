@@ -9,6 +9,7 @@
  */
 import React from 'react';
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
+import styled, { keyframes } from 'styled-components';
 
 const LoadingOverlayWrapper = React.createClass({
 
@@ -75,57 +76,118 @@ const LoadingOverlay = React.createClass({
 
   render: function () {
 
-    const styles = {
-      overlay: {
-        position: 'absolute',
-        height: '100%',
-        width: '100%',
-        background: this.props.background,
-        color: this.props.color,
-        top: '0px',
-        left: '0px',
-        transition: `opacity ${this.props.speed}ms ease-out`,
-        display: 'flex',
-        textAlign: 'center',
-        fontSize: '1.2em',
-        zIndex: this.props.zIndex
-      },
-      content: {
-        margin: 'auto'
-      },
-      spinner: {
-        width: this.props.spinnerSize,
-        maxHeight: '100%',
-        position: 'relative'
-      },
-      circle: {
-        stroke: this.props.color
+    const Overlay = styled.div`
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background: ${this.props.background};
+      color: ${this.props.color};
+      top: 0px;
+      left: 0px;
+      transition: opacity ${this.props.speed}ms ease-out;
+      display: flex;
+      text-align: center;
+      font-size: 1.2em;
+      z-index: ${this.props.zIndex};
+      &._loading-overlay-transition-appear,
+      &._loading-overlay-transition-enter {
+        opacity: 0.01;
       }
-    };
+      &._loading-overlay-transition-appear._loading-overlay-transition-appear-active,
+      &._loading-overlay-transition-enter._loading-overlay-transition-enter-active {
+        opacity: 1;
+        transition: opacity .5s ease-in;
+      }
+      &._loading-overlay-transition-leave {
+        opacity: 1;
+      }
+      &._loading-overlay-transition-leave._loading-overlay-transition-leave-active {
+        opacity: 0;
+        transition: opacity .5s ease-in;
+      }
+    `;
+
+    const Spinner = styled.div`
+      position: relative;
+      margin: 0px auto 10px auto;
+      width: ${this.props.spinnerSize};
+      max-height: 100%;
+      &:before {
+        content: '';
+        display: block;
+        padding-top: 100%;
+      }
+    `;
+
+    const Content = styled.div`
+      margin: auto;
+    `;
+
+    const rotate360 = keyframes`
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    `;
+
+    const spinnerDash = keyframes`
+      0% {
+        stroke-dasharray: 1,200;
+        stroke-dashoffset: 0;
+      }
+      50% {
+        stroke-dasharray: 89,200;
+        stroke-dashoffset: -35px;
+      }
+      100% {
+        stroke-dasharray: 89,200;
+        stroke-dashoffset: -124px;
+      }
+    `;
+
+    const Svg = styled.svg`
+      animation: ${rotate360} 2s linear infinite;
+      height: 100%;
+      transform-origin: center center;
+      width: 100%;
+      position: absolute;
+      top: 0; bottom: 0; left: 0; right: 0;
+      margin: auto;
+    `;
+
+    const Circle = styled.circle`
+      animation: ${spinnerDash} 1.5s ease-in-out infinite;
+      stroke-dasharray: 1,200;
+      stroke-dashoffset: 0;
+      stroke-linecap: round;
+      stroke: ${this.props.color};
+    `;
 
     let spinnerNode = null;
     if(this.props.spinner) spinnerNode = (
-      <div className="spinner" style={styles.spinner}>
-        <svg viewBox="25 25 50 50">
-          <circle style={styles.circle} cx="50" cy="50" r="20" fill="none" strokeWidth="2" strokeMiterlimit="10" />
-        </svg>
-      </div>
+      <Spinner>
+        <Svg viewBox="25 25 50 50">
+          <Circle cx="50" cy="50" r="20" fill="none" strokeWidth="2" strokeMiterlimit="10" />
+        </Svg>
+      </Spinner>
     );
 
     let textNode = null;
     if(!!this.props.text) textNode = <div>{this.props.text}</div>
 
     let contentNode = null;
-    if(this.props.text ||  this.props.spinner) {
+    if(this.props.text || this.props.spinner) {
       contentNode = (
-        <div style={ styles.content }>
+        <Content>
           {spinnerNode}
           {textNode}
-        </div>
+        </Content>
       );
     }
 
-    return <div style={ styles.overlay } key="dimmer">{contentNode}</div>
+    return <Overlay key="dimmer">{contentNode}</Overlay>
   }
 });
 

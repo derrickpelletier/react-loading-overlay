@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import LoadingOverlay from '../../src/LoadingOverlay.js';
-import '../../src/css/spinner.css';
 
 
 const wrapped = (<div style={{padding: '20px', background: '#FFF'}}>
