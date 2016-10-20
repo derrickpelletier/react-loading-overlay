@@ -1,11 +1,8 @@
-var webpack = require('webpack');
-var path = require('path');
-
 var config = {
   entry: './src/LoadingOverlay.js',
   output: {
     library: 'LoadingOverlay',
-    libraryTarget:'umd'
+    libraryTarget: 'umd'
   },
   externals: {
     'react': {
@@ -17,14 +14,14 @@ var config = {
     'react/lib/ReactCSSTransitionGroup': 'ReactCSSTransitionGroup',
     'react-dom': 'ReactDOM'
   },
-  module : {
+  module: {
     loaders: [
       {
         test: /\.js$/,
         loader: 'babel'
-      },
-    ],
+      }
+    ]
   }
-};
+}
 
-module.exports = config;
+module.exports = config

@@ -1,6 +1,6 @@
 {
   "name": "react-loading-overlay",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "description": "Loading overlays with fade, spinner, message support.",
   "keywords": [
     "react",
@@ -17,7 +17,9 @@
     "build-es6": "rimraf es6 && babel ./src -d es6 --blacklist=es6.modules",
     "build-umd": "NODE_ENV=development webpack src/LoadingOverlay.js umd/LoadingOverlay.js",
     "build-min": "NODE_ENV=production webpack src/LoadingOverlay.js umd/LoadingOverlay.min.js",
-    "storybook": "start-storybook -p 9001"
+    "storybook": "start-storybook -p 9001",
+    "lint": "standard",
+    "lint-fix": "standard --fix"
   },
   "repository": {
     "type": "git",
@@ -46,6 +48,7 @@
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-react": "^6.11.1",
     "rimraf": "^2.5.4",
+    "standard": "^8.4.0",
     "styled-components": "^1.0.8",
     "webpack": "^1.13.2"
   },

@@ -7,9 +7,9 @@
 
   <LoadingOverlay active={true} text='Saving...'>my children</LoadingOverlay>
  */
-import React from 'react';
-import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
-import styled, { keyframes } from 'styled-components';
+import React from 'react'
+import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup'
+import styled, { keyframes } from 'styled-components'
 
 const LoadingOverlayWrapper = React.createClass({
 
@@ -38,31 +38,32 @@ const LoadingOverlayWrapper = React.createClass({
   },
 
   render: function () {
-
-    const loadNode = this.props.active ? (<LoadingOverlay key='the_dimmer' {...this.props} />) : null;
-    let wrapNode = loadNode;
-    if(this.props.animate || this.props.spinner) {
+    const loadNode = this.props.active ? (<LoadingOverlay key='the_dimmer' {...this.props} />) : null
+    let wrapNode = loadNode
+    if (this.props.animate || this.props.spinner) {
       wrapNode = (
         <ReactCSSTransitionGroup
-          transitionName="_loading-overlay-transition"
-          transitionAppear={true}
+          transitionName='_loading-overlay-transition'
+          transitionAppear
           transitionEnterTimeout={500}
           transitionLeaveTimeout={500}
           transitionAppearTimeout={500}>
           {loadNode}
         </ReactCSSTransitionGroup>
-      );
+      )
     }
     return (
       <div
-        style={{position:'relative'}}
+        style={{
+          position: 'relative'
+        }}
         className={this.props.className}>
         {this.props.children}
         {wrapNode}
       </div>
     )
   }
-});
+})
 
 const LoadingOverlay = React.createClass({
   displayName: 'LoadingOverlay',
@@ -71,11 +72,10 @@ const LoadingOverlay = React.createClass({
     return {
       text: null,
       spinner: false
-    };
+    }
   },
 
   render: function () {
-
     const Overlay = styled.div`
       position: absolute;
       height: 100%;
@@ -105,7 +105,7 @@ const LoadingOverlay = React.createClass({
         opacity: 0;
         transition: opacity .5s ease-in;
       }
-    `;
+    `
 
     const Spinner = styled.div`
       position: relative;
@@ -117,11 +117,11 @@ const LoadingOverlay = React.createClass({
         display: block;
         padding-top: 100%;
       }
-    `;
+    `
 
     const Content = styled.div`
       margin: auto;
-    `;
+    `
 
     const rotate360 = keyframes`
       from {
@@ -130,7 +130,7 @@ const LoadingOverlay = React.createClass({
       to {
         transform: rotate(360deg);
       }
-    `;
+    `
 
     const spinnerDash = keyframes`
       0% {
@@ -145,7 +145,7 @@ const LoadingOverlay = React.createClass({
         stroke-dasharray: 89,200;
         stroke-dashoffset: -124px;
       }
-    `;
+    `
 
     const Svg = styled.svg`
       animation: ${rotate360} 2s linear infinite;
@@ -155,7 +155,7 @@ const LoadingOverlay = React.createClass({
       position: absolute;
       top: 0; bottom: 0; left: 0; right: 0;
       margin: auto;
-    `;
+    `
 
     const Circle = styled.circle`
       animation: ${spinnerDash} 1.5s ease-in-out infinite;
@@ -163,32 +163,34 @@ const LoadingOverlay = React.createClass({
       stroke-dashoffset: 0;
       stroke-linecap: round;
       stroke: ${this.props.color};
-    `;
+    `
 
-    let spinnerNode = null;
-    if(this.props.spinner) spinnerNode = (
-      <Spinner>
-        <Svg viewBox="25 25 50 50">
-          <Circle cx="50" cy="50" r="20" fill="none" strokeWidth="2" strokeMiterlimit="10" />
-        </Svg>
-      </Spinner>
-    );
+    let spinnerNode = null
+    if (this.props.spinner) {
+      spinnerNode = (
+        <Spinner>
+          <Svg viewBox='25 25 50 50'>
+            <Circle cx='50' cy='50' r='20' fill='none' strokeWidth='2' strokeMiterlimit='10' />
+          </Svg>
+        </Spinner>
+      )
+    }
 
-    let textNode = null;
-    if(!!this.props.text) textNode = <div>{this.props.text}</div>
+    let textNode = null
+    if (this.props.text) textNode = <div>{this.props.text}</div>
 
-    let contentNode = null;
-    if(this.props.text || this.props.spinner) {
+    let contentNode = null
+    if (this.props.text || this.props.spinner) {
       contentNode = (
         <Content>
           {spinnerNode}
           {textNode}
         </Content>
-      );
+      )
     }
 
-    return <Overlay key="dimmer">{contentNode}</Overlay>
+    return <Overlay key='dimmer'>{contentNode}</Overlay>
   }
-});
+})
 
-export default LoadingOverlayWrapper;
+export default LoadingOverlayWrapper
