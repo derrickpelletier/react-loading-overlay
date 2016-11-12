@@ -16,7 +16,7 @@ A customizable, simple loading overlay.
     active={isActive}
     spinner
     text='Loading your content...'
-    >
+    />
   <p>Some content or children or something.</p>
 </div>
 ```
