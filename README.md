@@ -11,14 +11,14 @@ A customizable, simple loading overlay.
 ## Usage
 
 ```javascript
-<LoadingOverlay
-  active={isActive}
-  spinner
-  text='Loading your content...'
-  >
-  Some components
-</LoadingOverlay>
-
+<div>
+  <LoadingOverlay
+    active={isActive}
+    spinner
+    text='Loading your content...'
+    >
+  <p>Some content or children or something.</p>
+</div>
 ```
 
 
