@@ -11,6 +11,11 @@ import React from 'react'
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup'
 import styled, { keyframes } from 'styled-components'
 
+function FirstChild (props) {
+  const childrenArray = React.Children.toArray(props.children)
+  return childrenArray[0] || null
+}
+
 class LoadingOverlayWrapper extends React.Component {
   render () {
     const loadNode = this.props.active ? (<LoadingOverlay key='the_dimmer' {...this.props} />) : null
@@ -22,21 +27,13 @@ class LoadingOverlayWrapper extends React.Component {
           transitionAppear
           transitionEnterTimeout={500}
           transitionLeaveTimeout={500}
-          transitionAppearTimeout={500}>
+          transitionAppearTimeout={500}
+          component={FirstChild}>
           {loadNode}
         </ReactCSSTransitionGroup>
       )
     }
-    return (
-      <div
-        style={{
-          position: 'relative'
-        }}
-        className={this.props.className}>
-        {this.props.children}
-        {wrapNode}
-      </div>
-    )
+    return wrapNode
   }
 }
 
