@@ -32,3 +32,9 @@ A customizable, simple loading overlay.
 + **color**, `String`, valid css color declaration for the text and circle color.
 + **spinnerSize**, `String`, valid css size (`100px`) for the size of the spinner circle.
 + **zIndex**, `Integer`, use in case you are experiencing other z-indexed components appearing over top of the overlay.
+
+----
+
+## Future
+- Passing in custom loader components. 
+- Composable loader, maybe some alternative spinner options or something.
