@@ -11,33 +11,8 @@ import React from 'react'
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup'
 import styled, { keyframes } from 'styled-components'
 
-const LoadingOverlayWrapper = React.createClass({
-
-  propTypes: {
-    active: React.PropTypes.bool,
-    text: React.PropTypes.string,
-    spinner: React.PropTypes.bool,
-    spinnerSize: React.PropTypes.string,
-    className: React.PropTypes.string,
-    background: React.PropTypes.string,
-    color: React.PropTypes.string,
-    zIndex: React.PropTypes.number,
-    animate: React.PropTypes.bool
-  },
-
-  getDefaultProps: function () {
-    return {
-      active: false,
-      className: '_loading-overlay',
-      background: 'rgba(0,0,0,.7)',
-      spinnerSize: '50px',
-      color: '#FFF',
-      zIndex: 800,
-      animate: false
-    }
-  },
-
-  render: function () {
+class LoadingOverlayWrapper extends React.Component {
+  render () {
     const loadNode = this.props.active ? (<LoadingOverlay key='the_dimmer' {...this.props} />) : null
     let wrapNode = loadNode
     if (this.props.animate || this.props.spinner) {
@@ -63,19 +38,32 @@ const LoadingOverlayWrapper = React.createClass({
       </div>
     )
   }
-})
+}
 
-const LoadingOverlay = React.createClass({
-  displayName: 'LoadingOverlay',
+LoadingOverlayWrapper.propTypes = {
+  active: React.PropTypes.bool,
+  text: React.PropTypes.string,
+  spinner: React.PropTypes.bool,
+  spinnerSize: React.PropTypes.string,
+  className: React.PropTypes.string,
+  background: React.PropTypes.string,
+  color: React.PropTypes.string,
+  zIndex: React.PropTypes.number,
+  animate: React.PropTypes.bool
+}
 
-  getDefaultProps: function () {
-    return {
-      text: null,
-      spinner: false
-    }
-  },
+LoadingOverlayWrapper.defaultProps = {
+  active: false,
+  className: '_loading-overlay',
+  background: 'rgba(0,0,0,.7)',
+  spinnerSize: '50px',
+  color: '#FFF',
+  zIndex: 800,
+  animate: false
+}
 
-  render: function () {
+class LoadingOverlay extends React.Component {
+  render () {
     const Overlay = styled.div`
       position: absolute;
       height: 100%;
@@ -191,6 +179,11 @@ const LoadingOverlay = React.createClass({
 
     return <Overlay key='dimmer'>{contentNode}</Overlay>
   }
-})
+}
+
+LoadingOverlay.defaultProps = {
+  text: null,
+  spinner: false
+}
 
 export default LoadingOverlayWrapper

@@ -1,6 +1,6 @@
 {
   "name": "react-loading-overlay",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Loading overlays with fade, spinner, message support.",
   "keywords": [
     "react",
@@ -35,15 +35,10 @@
   },
   "homepage": "https://github.com/derrickpelletier/react-loading-overlay#readme",
   "devDependencies": {
-    "@kadira/storybook": "^2.6.0",
+    "@kadira/storybook": "2.6.0",
     "babel": "^6.5.2",
     "babel-cli": "^6.14.0",
-    "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
-    "babel-plugin-transform-class-properties": "^6.11.5",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-plugin-transform-export-extensions": "^6.8.0",
-    "babel-plugin-transform-function-bind": "^6.8.0",
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-react": "^6.11.1",
