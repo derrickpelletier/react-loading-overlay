@@ -1,12 +1,10 @@
 /**
  * LoadingOverlay
  *
- * Wrap your component in this and set active={true/false}.
- * react transition group will handle the fade of the overlay portion.
- * apply any classnames you need as normal with className prop.
-
-  <LoadingOverlay active={true} text='Saving...'>my children</LoadingOverlay>
+ * Set as child component in a container. Toggle state with `active` prop.
+ * React transition group will handle the fade of the overlay.
  */
+
 import React, { Children } from 'react'
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup'
 import styled, { keyframes } from 'styled-components'
