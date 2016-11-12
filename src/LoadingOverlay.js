@@ -7,36 +7,36 @@
 
   <LoadingOverlay active={true} text='Saving...'>my children</LoadingOverlay>
  */
-import React from 'react'
+import React, { Children } from 'react'
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup'
 import styled, { keyframes } from 'styled-components'
 
+const FirstChild = props => Children.toArray(props.children)[0] || null
+
 class LoadingOverlayWrapper extends React.Component {
   render () {
-    const loadNode = this.props.active ? (<LoadingOverlay key='the_dimmer' {...this.props} />) : null
-    let wrapNode = loadNode
-    if (this.props.animate || this.props.spinner) {
-      wrapNode = (
+    const {
+      active,
+      animate,
+      spinner
+    } = this.props
+
+    let loadNode = active && <LoadingOverlay key='the_dimmer' {...this.props} />
+    if (animate || spinner) {
+      loadNode = (
         <ReactCSSTransitionGroup
           transitionName='_loading-overlay-transition'
           transitionAppear
           transitionEnterTimeout={500}
           transitionLeaveTimeout={500}
-          transitionAppearTimeout={500}>
+          transitionAppearTimeout={500}
+          component={FirstChild}
+          >
           {loadNode}
         </ReactCSSTransitionGroup>
       )
     }
-    return (
-      <div
-        style={{
-          position: 'relative'
-        }}
-        className={this.props.className}>
-        {this.props.children}
-        {wrapNode}
-      </div>
-    )
+    return loadNode
   }
 }
 
@@ -55,7 +55,7 @@ LoadingOverlayWrapper.propTypes = {
 LoadingOverlayWrapper.defaultProps = {
   active: false,
   className: '_loading-overlay',
-  background: 'rgba(0,0,0,.7)',
+  background: 'rgba(0, 0, 0, 0.7)',
   spinnerSize: '50px',
   color: '#FFF',
   zIndex: 800,
