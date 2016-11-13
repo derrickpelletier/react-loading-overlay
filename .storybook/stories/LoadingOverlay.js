@@ -110,6 +110,7 @@ storiesOf('LoadingOverlay', module)
       spinner
       style={{
         width: 200,
+        height: 200,
         overflowY: 'scroll'
       }}
       >

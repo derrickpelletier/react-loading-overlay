@@ -12,6 +12,13 @@ import styled, { keyframes } from 'styled-components'
 const FirstChild = props => Children.toArray(props.children)[0] || null
 
 class LoadingOverlayWrapper extends React.Component {
+  componentWillReceiveProps (nextProps) {
+    let s = nextProps.style
+    if (nextProps.active && (s.overflow || s.overflowY || s.overflowX)) {
+      this.wrapper.scrollTop = 0
+    }
+  }
+
   render () {
     const {
       active,
@@ -39,9 +46,14 @@ class LoadingOverlayWrapper extends React.Component {
       position: 'relative',
       ...this.props.style
     }
-    
+    if (active) {
+      if (styles.overflow) styles.overflow = 'hidden'
+      if (styles.overflowY) styles.overflowY = 'hidden'
+      if (styles.overflowX) styles.overflowX = 'hidden'
+    }
     return (
       <div
+        ref={n => { this.wrapper = n }}
         className={this.props.className}
         style={styles}
         >
