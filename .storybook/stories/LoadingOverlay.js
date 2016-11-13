@@ -12,31 +12,24 @@ const wrapped = (
     <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas faucibus mollis interdum. Donec ullamcorper nulla non metus auctor fringilla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
   </div>)
 
-const FadeWrapper = React.createClass({
-  getInitialState: function () {
-    return {
+class FadeWrapper extends React.Component {
+  constructor () {
+    super()
+    this.state = {
       active: true
     }
-  },
-
-  waitAndToggle: function () {
-    this.looper = setTimeout(() => {
+  }
+  componentWillUnmount () {
+    clearTimeout(this.looper)
+  }
+  componentDidMount () {
+    this.looper = setInterval(() => {
       this.setState({
         active: !this.state.active
       })
-      this.waitAndToggle()
     }, 2000)
-  },
-
-  componentWillUnmount: function () {
-    clearTimeout(this.looper)
-  },
-
-  componentDidMount: function () {
-    this.waitAndToggle()
-  },
-
-  render: function () {
+  }
+  render () {
     return (
       <LoadingOverlay
         {...this.props}
@@ -44,7 +37,7 @@ const FadeWrapper = React.createClass({
         />
     )
   }
-})
+}
 
 storiesOf('LoadingOverlay', module)
   .add('no props', () => (
