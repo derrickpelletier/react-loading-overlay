@@ -34,7 +34,15 @@ class LoadingOverlayWrapper extends React.Component {
         </ReactCSSTransitionGroup>
       )
     }
-    return loadNode
+    return (
+      <div
+        className={this.props.className}
+        style={{ position: 'relative' }}
+        >
+        {loadNode}
+        {this.props.children}
+      </div>
+    )
   }
 }
 
@@ -63,7 +71,7 @@ LoadingOverlayWrapper.defaultProps = {
 class LoadingOverlay extends React.Component {
   render () {
     const Overlay = styled.div`
-      position: fixed;
+      position: absolute;
       height: 100%;
       width: 100%;
       top: 0px;

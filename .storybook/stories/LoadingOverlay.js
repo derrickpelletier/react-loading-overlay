@@ -12,6 +12,16 @@ const wrapped = (
     <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas faucibus mollis interdum. Donec ullamcorper nulla non metus auctor fringilla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
   </div>)
 
+const Div = (props) => (
+  <div style={{
+    position: 'relative',
+    outline: '1px solid red',
+    width: '200px',
+    height: '200px',
+    overflowY: 'scroll'
+  }}>{props.children}</div>
+)
+
 class FadeWrapper extends React.Component {
   constructor () {
     super()
@@ -41,67 +51,66 @@ class FadeWrapper extends React.Component {
 
 storiesOf('LoadingOverlay', module)
   .add('no props', () => (
-    <div>
-      <LoadingOverlay />
+    <LoadingOverlay>
       {wrapped}
-    </div>
+    </LoadingOverlay>
   ))
   .add('active with text', () => (
     <div>
+      Don't overlay this
       <LoadingOverlay
         active
         text='Loading your fake content...'
-        />
-      {wrapped}
+        >
+        {wrapped}
+      </LoadingOverlay>
     </div>
   ))
   .add('with spinner', () => (
-    <div>
-      <LoadingOverlay
-        active
-        spinner
-        />
+    <LoadingOverlay
+      active
+      spinner
+      >
       {wrapped}
-    </div>
+    </LoadingOverlay>
   ))
   .add('fading', () => (
     <div>
+      Don't overlay this
       <FadeWrapper
         animate
         text='Loading stuff...'
-        />
-      {wrapped}
+        >
+        {wrapped}
+      </FadeWrapper>
     </div>
   ))
   .add('with spinner and text', () => (
-    <div>
-      <LoadingOverlay
-        active
-        spinner
-        text='Loading stuff...'
-        />
+    <LoadingOverlay
+      active
+      spinner
+      text='Loading stuff...'
+      >
       {wrapped}
-    </div>
+    </LoadingOverlay>
   ))
   .add('custom colors', () => (
-    <div>
-      <LoadingOverlay
-        active
-        spinner
-        text='Look at this background!'
-        background='rgba(57, 204, 204, 0.5)'
-        color='rgb(0, 0, 0)'
-        />
+    <LoadingOverlay
+      active
+      spinner
+      text='Look at this background!'
+      background='rgba(57, 204, 204, 0.5)'
+      color='rgb(0, 0, 0)'
+      >
       {wrapped}
-    </div>
+    </LoadingOverlay>
   ))
   .add('custom size', () => (
-    <div>
-      <LoadingOverlay
-        active
-        spinner
-        spinnerSize='100px'
-        />
+    <LoadingOverlay
+      active
+      spinner
+      spinnerSize='100px'
+      >
       {wrapped}
-    </div>
+    </LoadingOverlay>
   ))

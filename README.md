@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/react-loading-overlay.svg)](https://badge.fury.io/js/react-loading-overlay)
 
-A customizable, simple loading overlay.
+A customizable, simple loading overlay with transitions.
 
 ![](https://d17oy1vhnax1f7.cloudfront.net/items/1f1V3g0T0u403m3U431n/Screen%20Recording%202016-10-20%20at%2002.29%20PM.gif)
 
@@ -10,15 +10,16 @@ A customizable, simple loading overlay.
 
 ## Usage
 
+Wrap your components in it and toggle the `active` prop as necessary.
+
 ```javascript
-<div>
-  <LoadingOverlay
-    active={isActive}
-    spinner
-    text='Loading your content...'
-    />
+<Loadable
+  active={isActive}
+  spinner
+  text='Loading your content...'
+  >
   <p>Some content or children or something.</p>
-</div>
+</Loadable>
 ```
 
 
@@ -36,5 +37,5 @@ A customizable, simple loading overlay.
 ----
 
 ## Future
-- Passing in custom loader components. 
+- Passing in custom loader components.
 - Composable loader, maybe some alternative spinner options or something.
