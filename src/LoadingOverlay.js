@@ -34,10 +34,16 @@ class LoadingOverlayWrapper extends React.Component {
         </ReactCSSTransitionGroup>
       )
     }
+
+    let styles = {
+      position: 'relative',
+      ...this.props.style
+    }
+    
     return (
       <div
         className={this.props.className}
-        style={{ position: 'relative' }}
+        style={styles}
         >
         {loadNode}
         {this.props.children}
@@ -65,7 +71,8 @@ LoadingOverlayWrapper.defaultProps = {
   spinnerSize: '50px',
   color: '#FFF',
   zIndex: 800,
-  animate: false
+  animate: false,
+  style: {}
 }
 
 class LoadingOverlay extends React.Component {
