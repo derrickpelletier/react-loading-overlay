@@ -63,13 +63,13 @@ LoadingOverlayWrapper.defaultProps = {
 class LoadingOverlay extends React.Component {
   render () {
     const Overlay = styled.div`
-      position: absolute;
+      position: fixed;
       height: 100%;
       width: 100%;
-      background: ${this.props.background};
-      color: ${this.props.color};
       top: 0px;
       left: 0px;
+      background: ${this.props.background};
+      color: ${this.props.color};
       transition: opacity ${this.props.speed}ms ease-out;
       display: flex;
       text-align: center;
