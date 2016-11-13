@@ -12,16 +12,6 @@ const wrapped = (
     <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas faucibus mollis interdum. Donec ullamcorper nulla non metus auctor fringilla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
   </div>)
 
-const Div = (props) => (
-  <div style={{
-    position: 'relative',
-    outline: '1px solid red',
-    width: '200px',
-    height: '200px',
-    overflowY: 'scroll'
-  }}>{props.children}</div>
-)
-
 class FadeWrapper extends React.Component {
   constructor () {
     super()
@@ -113,4 +103,17 @@ storiesOf('LoadingOverlay', module)
       >
       {wrapped}
     </LoadingOverlay>
+  ))
+  .add('use style props', () => (
+    <FadeWrapper
+      active
+      spinner
+      style={{
+        width: 200,
+        height: 200,
+        overflowY: 'scroll'
+      }}
+      >
+      {wrapped}
+    </FadeWrapper>
   ))
