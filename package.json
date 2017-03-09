@@ -35,6 +35,9 @@
     "url": "https://github.com/derrickpelletier/react-loading-overlay/issues"
   },
   "homepage": "https://github.com/derrickpelletier/react-loading-overlay#readme",
+  "dependencies": {
+    "styled-components": "^1.0.8"
+  },
   "devDependencies": {
     "@kadira/storybook": "2.6.0",
     "babel": "^6.5.2",
@@ -48,7 +51,6 @@
     "react-addons-test-utils": "^15.3.2",
     "rimraf": "^2.5.4",
     "standard": "^8.4.0",
-    "styled-components": "^1.0.8",
     "webpack": "^1.13.2"
   },
   "peerDependencies": {
