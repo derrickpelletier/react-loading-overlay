@@ -6,6 +6,7 @@
  */
 
 import React, { Children } from 'react'
+import PropTypes from 'prop-types'
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup'
 import styled, { keyframes } from 'styled-components'
 
@@ -65,15 +66,15 @@ class LoadingOverlayWrapper extends React.Component {
 }
 
 LoadingOverlayWrapper.propTypes = {
-  active: React.PropTypes.bool,
-  text: React.PropTypes.string,
-  spinner: React.PropTypes.bool,
-  spinnerSize: React.PropTypes.string,
-  className: React.PropTypes.string,
-  background: React.PropTypes.string,
-  color: React.PropTypes.string,
-  zIndex: React.PropTypes.number,
-  animate: React.PropTypes.bool
+  active: PropTypes.bool,
+  text: PropTypes.string,
+  spinner: PropTypes.bool,
+  spinnerSize: PropTypes.string,
+  className: PropTypes.string,
+  background: PropTypes.string,
+  color: PropTypes.string,
+  zIndex: PropTypes.number,
+  animate: PropTypes.bool
 }
 
 LoadingOverlayWrapper.defaultProps = {

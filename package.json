@@ -36,6 +36,7 @@
   },
   "homepage": "https://github.com/derrickpelletier/react-loading-overlay#readme",
   "dependencies": {
+    "prop-types": "^15.5.10",
     "styled-components": "^1.0.8"
   },
   "devDependencies": {
@@ -49,6 +50,7 @@
     "enzyme": "^2.6.0",
     "jest": "^17.0.0",
     "react-addons-test-utils": "^15.3.2",
+    "react-test-renderer": "^15.5.4",
     "rimraf": "^2.5.4",
     "standard": "^8.4.0",
     "webpack": "^1.13.2"
