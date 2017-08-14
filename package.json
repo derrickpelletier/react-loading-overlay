@@ -37,7 +37,7 @@
   "homepage": "https://github.com/derrickpelletier/react-loading-overlay#readme",
   "dependencies": {
     "prop-types": "^15.5.10",
-    "styled-components": "^1.0.8"
+    "styled-components": "^2.1.2"
   },
   "devDependencies": {
     "@kadira/storybook": "2.6.0",
