@@ -7,7 +7,7 @@
 
 import React, { Children } from 'react'
 import PropTypes from 'prop-types'
-import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup'
+import ReactCSSTransitionGroup from 'react-transition-group'
 import styled, { keyframes } from 'styled-components'
 
 const FirstChild = props => Children.toArray(props.children)[0] || null
