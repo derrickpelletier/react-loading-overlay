@@ -1,6 +1,6 @@
 {
   "name": "react-loading-overlay",
-  "version": "0.2.5",
+  "version": "0.2.7",
   "description": "Loading overlays with fade, spinner, message support.",
   "keywords": [
     "react",
@@ -37,26 +37,29 @@
   "homepage": "https://github.com/derrickpelletier/react-loading-overlay#readme",
   "dependencies": {
     "prop-types": "^15.5.10",
+    "react-transition-group": "^1.2.1",
     "styled-components": "^2.1.2"
   },
   "devDependencies": {
     "@kadira/storybook": "2.6.0",
-    "babel": "^6.5.2",
-    "babel-cli": "^6.14.0",
+    "babel-cli": "^6.26.0",
     "babel-loader": "^6.2.5",
-    "babel-plugin-transform-object-rest-spread": "^6.8.0",
-    "babel-preset-es2015": "^6.14.0",
-    "babel-preset-react": "^6.11.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
     "enzyme": "^2.6.0",
     "jest": "^17.0.0",
+    "react": "^15.0.0",
     "react-addons-test-utils": "^15.3.2",
+    "react-dom": "^15.0.0",
     "react-test-renderer": "^15.5.4",
     "rimraf": "^2.5.4",
     "standard": "^8.4.0",
     "webpack": "^1.13.2"
   },
   "peerDependencies": {
-    "react": "^0.14 || ^15.0.0-rc || ^15.0",
-    "react-dom": "^0.14 || ^15.0.0-rc || ^15.0"
+    "react": "^0.14 || ^15.0.0-rc || ^15.0 || ^16.0.0 || ^16.0",
+    "react-dom": "^0.14 || ^15.0.0-rc || ^15.0 || ^16.0.0 || ^16.0"
   }
 }
