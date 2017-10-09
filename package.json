@@ -38,7 +38,7 @@
   "dependencies": {
     "prop-types": "^15.5.10",
     "react-transition-group": "^1.2.1",
-    "styled-components": "^1.0.8"
+    "styled-components": "^2.1.2"
   },
   "devDependencies": {
     "@kadira/storybook": "2.6.0",
