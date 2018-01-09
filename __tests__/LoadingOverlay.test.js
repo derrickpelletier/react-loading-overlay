@@ -32,6 +32,14 @@ describe('Loader DOM state', () => {
     expect(wrapped.childAt(0).length).toBe(1)
   })
 
+  it('supports click events on overlay', () => {
+    let clicked = false
+    function onClick () { clicked = true }
+    const wrapped = mount(<LoadingOverlay active onClick={onClick} />)
+    wrapped.find('div').last().simulate('click')
+    expect(clicked).toBe(true)
+  })
+
   it('removes self from DOM when not active', () => {
     const wrapped = mount(<DelayedInactive />)
     expect(wrapped.childAt(0).length).toBe(1)

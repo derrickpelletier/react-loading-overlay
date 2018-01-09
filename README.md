@@ -33,6 +33,7 @@ Wrap your components in it and toggle the `active` prop as necessary.
 + **color**, `String`, valid css color declaration for the text and circle color.
 + **spinnerSize**, `String`, valid css size (`100px`) for the size of the spinner circle.
 + **zIndex**, `Integer`, use in case you are experiencing other z-indexed components appearing over top of the overlay.
++ **onClick**, `Function`, triggered when the overlay is clicked.
 
 ----
 
