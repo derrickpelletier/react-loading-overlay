@@ -117,3 +117,11 @@ storiesOf('LoadingOverlay', module)
       {wrapped}
     </FadeWrapper>
   ))
+  .add("clickable", () => (
+    <LoadingOverlay
+      active
+      onClick={action('overlay-click')}
+    >
+      {wrapped}
+    </LoadingOverlay>
+  ))
