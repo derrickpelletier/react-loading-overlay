@@ -4,7 +4,7 @@
 
 A customizable, simple loading overlay with transitions.
 
-![](https://d17oy1vhnax1f7.cloudfront.net/items/1f1V3g0T0u403m3U431n/Screen%20Recording%202016-10-20%20at%2002.29%20PM.gif)
+![](https://d2ffutrenqvap3.cloudfront.net/items/300t172h2B1g0w0W2W25/Screen%20Recording%202018-02-23%20at%2012.08%20AM.gif)
 
 -------
 
