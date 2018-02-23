@@ -86,8 +86,7 @@ LoadingOverlayWrapper.defaultProps = {
   color: '#FFF',
   zIndex: 800,
   animate: false,
-  style: {},
-  onClick: null
+  style: {}
 }
 
 class LoadingOverlay extends React.Component {
