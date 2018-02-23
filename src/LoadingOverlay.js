@@ -74,7 +74,8 @@ LoadingOverlayWrapper.propTypes = {
   background: PropTypes.string,
   color: PropTypes.string,
   zIndex: PropTypes.number,
-  animate: PropTypes.bool
+  animate: PropTypes.bool,
+  onClick: PropTypes.func
 }
 
 LoadingOverlayWrapper.defaultProps = {
@@ -203,13 +204,14 @@ class LoadingOverlay extends React.Component {
       )
     }
 
-    return <Overlay key='dimmer'>{contentNode}</Overlay>
+    return <Overlay key='dimmer' onClick={this.props.onClick}>{contentNode}</Overlay>
   }
 }
 
 LoadingOverlay.defaultProps = {
   text: null,
-  spinner: false
+  spinner: false,
+  onClick: null
 }
 
 export default LoadingOverlayWrapper
