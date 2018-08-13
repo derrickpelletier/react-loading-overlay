@@ -13,13 +13,15 @@ A customizable, simple loading overlay with transitions.
 Wrap your components in it and toggle the `active` prop as necessary.
 
 ```javascript
-<Loadable
+import LoadingOverlay from 'react-loading-overlay';
+
+<LoadingOverlay
   active={isActive}
   spinner
   text='Loading your content...'
   >
   <p>Some content or children or something.</p>
-</Loadable>
+</LoadingOverlay>
 ```
 
 
