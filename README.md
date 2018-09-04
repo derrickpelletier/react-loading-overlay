@@ -32,6 +32,7 @@ import LoadingOverlay from 'react-loading-overlay';
 + **spinner**, `Boolean`, whether to use a spinner in the loader.
 + **text**, `String`, used as content of the loader.
 + **background**, `String`, valid css color declaration for the overlay background.
++ **position**, `String`, valid css position declaration for the overlay element.
 + **color**, `String`, valid css color declaration for the text and circle color.
 + **spinnerSize**, `String`, valid css size (`100px`) for the size of the spinner circle.
 + **zIndex**, `Integer`, use in case you are experiencing other z-indexed components appearing over top of the overlay.

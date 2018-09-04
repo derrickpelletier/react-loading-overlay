@@ -72,6 +72,7 @@ LoadingOverlayWrapper.propTypes = {
   spinnerSize: PropTypes.string,
   className: PropTypes.string,
   background: PropTypes.string,
+  position: PropTypes.string,
   color: PropTypes.string,
   zIndex: PropTypes.number,
   animate: PropTypes.bool,
@@ -80,6 +81,7 @@ LoadingOverlayWrapper.propTypes = {
 
 LoadingOverlayWrapper.defaultProps = {
   active: false,
+  position: 'absolute',
   className: '_loading-overlay',
   background: 'rgba(0, 0, 0, 0.7)',
   spinnerSize: '50px',
@@ -90,7 +92,7 @@ LoadingOverlayWrapper.defaultProps = {
 }
 
 const Overlay = styled.div`
-  position: absolute;
+  position: ${props => props.position};
   height: 100%;
   width: 100%;
   top: 0px;
@@ -207,6 +209,7 @@ class LoadingOverlay extends React.Component {
     return (
       <Overlay
         background={this.props.background}
+        position={this.props.position}
         color={this.props.color}
         speed={this.props.speed}
         zIndex={this.props.zIndex}
