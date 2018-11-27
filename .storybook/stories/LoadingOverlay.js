@@ -125,3 +125,13 @@ storiesOf('LoadingOverlay', module)
       {wrapped}
     </LoadingOverlay>
   ))
+  .add("position fixed", () => (
+    <LoadingOverlay
+      active
+      spinner
+      position='fixed'
+      text='Both spinner and text will remain in the center'
+      >
+      {wrapped}
+    </LoadingOverlay>
+  ))
