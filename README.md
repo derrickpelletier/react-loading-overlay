@@ -13,7 +13,7 @@ A customizable, simple loading overlay with transitions.
 Wrap your components in it and toggle the `active` prop as necessary.
 
 ```javascript
-import LoadingOverlay from 'react-loading-overlay';
+import LoadingOverlay from '@tkforce/react-loading-overlay';
 
 <LoadingOverlay
   active={isActive}
