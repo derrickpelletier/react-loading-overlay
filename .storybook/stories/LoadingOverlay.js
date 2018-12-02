@@ -1,5 +1,6 @@
 import React from 'react'
-import { storiesOf, action } from '@kadira/storybook'
+import { storiesOf, action } from '@storybook/react';
+import styled from 'styled-components'
 import LoadingOverlay from '../../src/LoadingOverlay.js'
 
 const wrapped = (
@@ -13,28 +14,34 @@ const wrapped = (
   </div>)
 
 class FadeWrapper extends React.Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = {
       active: true
     }
   }
-  componentWillUnmount () {
-    clearTimeout(this.looper)
+
+  toggleActive = () => {
+    this.setState((prevState) => ({
+      active: !prevState.active
+    }))
   }
-  componentDidMount () {
-    this.looper = setInterval(() => {
-      this.setState({
-        active: !this.state.active
-      })
-    }, 2000)
-  }
+
   render () {
+    const { active } = this.state
     return (
-      <LoadingOverlay
-        {...this.props}
-        active={this.state.active}
+      <>
+        <button
+          type='button'
+          onClick={this.toggleActive}
+        >
+          turn {active ? 'off' : 'on'}
+        </button>
+        <LoadingOverlay
+          {...this.props}
+          active={this.state.active}
         />
+      </>
     )
   }
 }
@@ -66,7 +73,6 @@ storiesOf('LoadingOverlay', module)
   ))
   .add('fading', () => (
     <div>
-      Don't overlay this
       <FadeWrapper
         animate
         text='Loading stuff...'
@@ -90,7 +96,6 @@ storiesOf('LoadingOverlay', module)
       spinner
       text='Look at this background!'
       background='rgba(57, 204, 204, 0.5)'
-      color='rgb(0, 0, 0)'
       >
       {wrapped}
     </LoadingOverlay>
@@ -98,25 +103,30 @@ storiesOf('LoadingOverlay', module)
   .add('custom size', () => (
     <LoadingOverlay
       active
-      spinner
-      spinnerSize='100px'
+      spinner={<LoadingOverlay.Spinner size="100px" />}
       >
       {wrapped}
     </LoadingOverlay>
   ))
-  .add('use style props', () => (
-    <FadeWrapper
-      active
-      spinner
-      style={{
-        width: 200,
-        height: 200,
-        overflowY: 'scroll'
-      }}
-      >
-      {wrapped}
-    </FadeWrapper>
-  ))
+  .add('custom styles', () => {
+    const BlueOverlay = styled(LoadingOverlay.Overlay)`
+      && { background-color: blue; }
+    `
+    return (
+      <FadeWrapper
+        active
+        spinner
+        overlay={<BlueOverlay />}
+        style={{
+          width: 200,
+          height: 200,
+          overflowY: 'scroll'
+        }}
+        >
+        {wrapped}
+      </FadeWrapper>
+    )
+  })
   .add("clickable", () => (
     <LoadingOverlay
       active
