@@ -1,16 +1,13 @@
 import React from 'react'
-import { storiesOf, action } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import styled from 'styled-components'
 import LoadingOverlay from '../../src/LoadingOverlay.js'
 
 const wrapped = (
   <div style={{padding: '20px', background: '#FFF'}}>
-    <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nulla vitae elit libero, a pharetra augue.</p>
-    <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec sed odio dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec sed odio dui.</p>
-    <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas faucibus mollis interdum. Donec ullamcorper nulla non metus auctor fringilla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-    <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas faucibus mollis interdum. Donec ullamcorper nulla non metus auctor fringilla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-    <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas faucibus mollis interdum. Donec ullamcorper nulla non metus auctor fringilla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-    <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas faucibus mollis interdum. Donec ullamcorper nulla non metus auctor fringilla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo eget magna fermentum iaculis eu non diam phasellus vestibulum. Eget nunc scelerisque viverra mauris. Egestas sed sed risus pretium quam vulputate dignissim suspendisse. Proin sagittis nisl rhoncus mattis rhoncus urna neque viverra. Tincidunt eget nullam non nisi est sit amet facilisis magna. Pharetra vel turpis nunc eget lorem dolor sed viverra. Condimentum mattis pellentesque id nibh tortor id aliquet. Mi sit amet mauris commodo. Vehicula ipsum a arcu cursus. Tortor id aliquet lectus proin nibh nisl. Iaculis eu non diam phasellus vestibulum lorem. Urna et pharetra pharetra massa massa ultricies mi quis. Egestas dui id ornare arcu odio. Morbi quis commodo odio aenean sed adipiscing.</p>
+    <p>In hac habitasse platea dictumst quisque sagittis purus sit amet. Amet mattis vulputate enim nulla aliquet porttitor lacus luctus. Tristique et egestas quis ipsum. Risus pretium quam vulputate dignissim suspendisse in. Eget est lorem ipsum dolor. Cum sociis natoque penatibus et magnis dis. Faucibus pulvinar elementum integer enim neque volutpat ac tincidunt. Elementum pulvinar etiam non quam lacus suspendisse faucibus interdum posuere. Lorem mollis aliquam ut porttitor leo a diam sollicitudin. Porta lorem mollis aliquam ut porttitor leo a diam.</p>
   </div>)
 
 class FadeWrapper extends React.Component {
@@ -35,10 +32,13 @@ class FadeWrapper extends React.Component {
           type='button'
           onClick={this.toggleActive}
         >
-          turn {active ? 'off' : 'on'}
+          turn loader {active ? 'off' : 'on'}
         </button>
+        <br />
+        <br />
         <LoadingOverlay
           {...this.props}
+          onClick={action('overlay-click')}
           active={this.state.active}
         />
       </>
@@ -58,80 +58,93 @@ storiesOf('LoadingOverlay', module)
       <LoadingOverlay
         active
         text='Loading your fake content...'
-        >
+      >
         {wrapped}
       </LoadingOverlay>
     </div>
   ))
   .add('with spinner', () => (
-    <LoadingOverlay
+    <FadeWrapper
       active
       spinner
-      >
+    >
       {wrapped}
-    </LoadingOverlay>
+    </FadeWrapper>
   ))
-  .add('fading', () => (
+  .add('No fade', () => (
     <div>
       <FadeWrapper
-        animate
-        text='Loading stuff...'
-        >
+        text='No fade when toggled'
+        fadeSpeed={0}
+      >
         {wrapped}
       </FadeWrapper>
     </div>
   ))
   .add('with spinner and text', () => (
-    <LoadingOverlay
+    <FadeWrapper
       active
       spinner
       text='Loading stuff...'
-      >
-      {wrapped}
-    </LoadingOverlay>
-  ))
-  .add('custom colors', () => (
-    <LoadingOverlay
-      active
-      spinner
-      text='Look at this background!'
-      background='rgba(57, 204, 204, 0.5)'
-      >
-      {wrapped}
-    </LoadingOverlay>
-  ))
-  .add('custom size', () => (
-    <LoadingOverlay
-      active
-      spinner={<LoadingOverlay.Spinner size="100px" />}
-      >
-      {wrapped}
-    </LoadingOverlay>
-  ))
-  .add('custom styles', () => {
-    const BlueOverlay = styled(LoadingOverlay.Overlay)`
-      && { background-color: blue; }
-    `
-    return (
-      <FadeWrapper
-        active
-        spinner
-        overlay={<BlueOverlay />}
-        style={{
-          width: 200,
-          height: 200,
-          overflowY: 'scroll'
-        }}
-        >
-        {wrapped}
-      </FadeWrapper>
-    )
-  })
-  .add("clickable", () => (
-    <LoadingOverlay
-      active
-      onClick={action('overlay-click')}
     >
       {wrapped}
-    </LoadingOverlay>
+    </FadeWrapper>
   ))
+  .add('with custom spinner', () => (
+    <FadeWrapper
+      active
+      spinner={<p>FAKE SPINNER</p>}
+      text='Loading stuff...'
+    >
+      {wrapped}
+    </FadeWrapper>
+  ))
+  .add('styles prop', () => (
+    <FadeWrapper
+      active
+      spinner
+      styles={{
+        wrapper: (base, props) => ({
+          ...base,
+          width: 300,
+          height: 200,
+          overflow: props.active ? 'hidden' : 'scroll'
+        }),
+        overlay: (base) => ({
+          ...base,
+          background: 'rgba(0, 0, 255, 0.5)'
+        }),
+        spinner: (base) => ({
+          ...base,
+          width: '100px',
+          '& svg circle': {
+            stroke: '#FF0000'
+          }
+        })
+      }}
+    >
+      {wrapped}
+    </FadeWrapper>
+  ))
+  .add('styled-components (or with classes)', () => {
+    const StyledLoader = styled(FadeWrapper)`
+      width: 250px;
+      height: 400px;
+      overflow: scroll;
+      .myOverlay_overlay {
+        background: rgba(255, 0, 0, 0.5);
+      }
+      &.myOverlay_wrapper--active {
+        overflow: hidden;
+      }
+    `
+    return (
+      <StyledLoader
+        classNamePrefix='myOverlay_'
+        active
+        spinner
+      >
+        {wrapped}
+      </StyledLoader>
+    )
+  })
