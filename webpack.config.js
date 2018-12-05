@@ -1,4 +1,5 @@
 var config = {
+  mode: process.env.NODE_ENV,
   entry: './src/LoadingOverlay.js',
   output: {
     library: 'LoadingOverlay',
@@ -15,10 +16,10 @@ var config = {
     'react-dom': 'ReactDOM'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        loader: 'babel'
+        use: 'babel-loader'
       }
     ]
   }
