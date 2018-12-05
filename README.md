@@ -1,8 +1,8 @@
 # React-Loading-Overlay
 
-![npm version](https://badgen.net/npm/v/react-loading-overlay)
+[![npm version](https://badgen.net/npm/v/react-loading-overlay)](https://www.npmjs.com/package/react-loading-overlay)
 ![minified + gzipped](https://badgen.net/bundlephobia/minzip/react-loading-overlay)
-![downloads](https://badgen.net/npm/dw/react-loading-overlay)
+[![downloads](https://badgen.net/npm/dw/react-loading-overlay)](https://www.npmjs.com/package/react-loading-overlay)
 
 A customizable, simple loading overlay with spinner and transitions.
 
