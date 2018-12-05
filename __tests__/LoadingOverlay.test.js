@@ -1,13 +1,15 @@
-/* global jest, describe, it, expect */
+/* global jest, describe, it, expect, afterEach */
 import LoadingOverlay from '../src/LoadingOverlay'
-import React from 'react'
-import { mount } from 'enzyme'
+import React, { Component } from 'react'
+import { render, fireEvent, cleanup } from 'react-testing-library'
 
 jest.useFakeTimers()
 
-class DelayedInactive extends React.Component {
-  constructor () {
-    super()
+afterEach(cleanup)
+
+class DelayedInactive extends Component {
+  constructor (props) {
+    super(props)
     this.state = { active: true }
   }
   componentDidMount () {
@@ -23,35 +25,40 @@ class DelayedInactive extends React.Component {
 
 describe('Loader DOM state', () => {
   it('is not in DOM initially if active:false', () => {
-    const wrapped = mount(<LoadingOverlay />)
-    expect(wrapped.childAt(0).length).toBe(0)
+    const { getByTestId } = render(<LoadingOverlay />)
+    expect(getByTestId('wrapper').children.length).toBe(0)
   })
 
   it('is in DOM initially if active:true', () => {
-    const wrapped = mount(<LoadingOverlay active />)
-    expect(wrapped.childAt(0).length).toBe(1)
+    const { getByTestId } = render(<LoadingOverlay active />)
+    expect(getByTestId('wrapper').children.length).toBe(1)
   })
 
   it('supports click events on overlay', () => {
     let clicked = false
-    function onClick () { clicked = true }
-    const wrapped = mount(<LoadingOverlay active onClick={onClick} />)
-    wrapped.find('div').last().simulate('click')
+    const { getByTestId } = render(
+      <LoadingOverlay
+        active
+        onClick={() => { clicked = true }}
+      />
+    )
+    fireEvent.click(getByTestId('overlay'))
     expect(clicked).toBe(true)
   })
 
   it('removes self from DOM when not active', () => {
-    const wrapped = mount(<DelayedInactive />)
-    expect(wrapped.childAt(0).length).toBe(1)
+    const { getByTestId } = render(<DelayedInactive />)
+    expect(getByTestId('wrapper').children.length).toBe(1)
     jest.runAllTimers()
-    expect(wrapped.childAt(0).length).toBe(0)
+    expect(getByTestId('wrapper').children.length).toBe(0)
   })
 
   it('remains in dom when inactive if animate is true', () => {
-    const wrapped = mount(<DelayedInactive animate />)
-    expect(wrapped.childAt(0).length).toBe(1)
+    const { getByTestId } = render(<DelayedInactive />)
+    expect(getByTestId('wrapper').children.length).toBe(1)
     jest.runOnlyPendingTimers()
-    expect(wrapped.state('active')).toBeFalsy()
-    expect(wrapped.childAt(0).length).toBe(1)
+    expect(getByTestId('wrapper').children.length).toBe(1)
+    jest.runAllTimers()
+    expect(getByTestId('wrapper').children.length).toBe(0)
   })
 })
