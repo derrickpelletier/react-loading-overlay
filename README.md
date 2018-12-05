@@ -1,10 +1,10 @@
-![](https://d2ffutrenqvap3.cloudfront.net/items/300t172h2B1g0w0W2W25/Screen%20Recording%202018-02-23%20at%2012.08%20AM.gif)
-
 # React-Loading-Overlay
 
 [![npm version](https://badge.fury.io/js/react-loading-overlay.svg)](https://badge.fury.io/js/react-loading-overlay)
 
 A customizable, simple loading overlay with spinner and transitions.
+
+![](https://github.com/derrickpelletier/react-loading-overlay/blob/v1/docs/rlo-example.gif?raw=true)
 
 -------
 
