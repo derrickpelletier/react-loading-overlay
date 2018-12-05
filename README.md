@@ -45,21 +45,21 @@ import LoadingOverlay from 'react-loading-overlay';
 ## Props :hammer_and_wrench:
 
 - `active` (boolean)
-  -  default: `true` - whether the loader is visible.
+  - default: `true` - whether the loader is visible.
 - `fadeSpeed` (milliseconds)
-  -  default: `500` - the transition speed for fading out the overlay.
+  - default: `500` - the transition speed for fading out the overlay.
 - `onClick` (function)
-  -  default: `undefined` - click handler for the overlay when active.
+  - default: `undefined` - click handler for the overlay when active.
 - `className` (string)
-  -  default: `undefined` - the className for the wrapping `<div />` that is present whether active or not.
+  - default: `undefined` - the className for the wrapping `<div />` that is present whether active or not.
 - `classNamePrefix` (string)
-  -  default: `_loading_overlay_` - the prefix for all classNames on the generated elements. see [Styling](#styles-with-css) for more info.
--  `spinner` (boolean *OR* node)
-  -  default: `false` - renders the default spinner when `true` (and when the loader is `active`). Otherwise you can provide any valid react node to [use your own spinner](#custom-spinner).
--  `text` (node)
-  -  default: `undefined` - the text or react node to render in the loader overlay when active.
--  `styles` (object)
-  -  default: `undefined` - see [Styling](#styles-with-emotion) for more info.
+  - default: `_loading_overlay_` - the prefix for all classNames on the generated elements. see [Styling](#styles-with-css) for more info.
+- `spinner` (boolean *OR* node)
+  - default: `false` - renders the default spinner when `true` (and when the loader is `active`). Otherwise you can provide any valid react node to [use your own spinner](#custom-spinner).
+- `text` (node)
+  - default: `undefined` - the text or react node to render in the loader overlay when active.
+- `styles` (object)
+  - default: `undefined` - see [Styling](#styles-with-emotion) for more info.
 
 ## Custom Spinner :recycle:
 
