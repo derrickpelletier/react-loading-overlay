@@ -4,7 +4,7 @@
 
 A customizable, simple loading overlay with spinner and transitions.
 
-![](https://github.com/derrickpelletier/react-loading-overlay/blob/v1/docs/rlo-example.gif?raw=true)
+![](https://github.com/derrickpelletier/react-loading-overlay/blob/master/docs/rlo-example.gif?raw=true)
 
 -------
 
