@@ -10,13 +10,13 @@ A customizable, simple loading overlay with spinner and transitions.
 
 - [React-Loading-Overlay](#react-loading-overlay)
   - [Changes in version 1.x](#changes-in-version-1x)
-  - [Quick start :running_woman:](#quick-start-runningwoman)
-  - [Props :hammer_and_wrench:](#props-hammerandwrench)
+  - [Quick start :running_woman:](#quick-start-running_woman)
+  - [Props :hammer_and_wrench:](#props-hammer_and_wrench)
   - [Custom Spinner :recycle:](#custom-spinner-recycle)
-  - [Custom styling :nail_care:](#custom-styling-nailcare)
-    - [Styles with emotion :woman_singer:](#styles-with-emotion-womansinger)
+  - [Custom styling :nail_care:](#custom-styling-nail_care)
+    - [Styles with emotion :woman_singer:](#styles-with-emotion-woman_singer)
     - [Styles with css](#styles-with-css)
-    - [Styles with styled-components :nail_care:](#styles-with-styled-components-nailcare)
+    - [Styles with styled-components :nail_care:](#styles-with-styled-components-nail_care)
 
 ------
 
