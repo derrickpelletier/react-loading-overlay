@@ -1,6 +1,8 @@
 # React-Loading-Overlay
 
-[![npm version](https://badge.fury.io/js/react-loading-overlay.svg)](https://badge.fury.io/js/react-loading-overlay)
+![npm version](https://badgen.net/npm/v/react-loading-overlay)
+![minified + gzipped](https://badgen.net/bundlephobia/minzip/react-loading-overlay)
+![downloads](https://badgen.net/npm/dw/react-loading-overlay)
 
 A customizable, simple loading overlay with spinner and transitions.
 
