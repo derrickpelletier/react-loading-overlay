@@ -1,6 +1,6 @@
 {
   "name": "react-loading-overlay",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "Loading overlays with fade, spinner, message support.",
   "keywords": [
     "react",
@@ -15,8 +15,8 @@
     "build": "npm run build-cjs && npm run build-es6 && rimraf umd && npm run build-umd && npm run build-min",
     "build-cjs": "rimraf lib && babel ./src -d lib",
     "build-es6": "rimraf es6 && babel ./src -d es6 --blacklist=es6.modules",
-    "build-umd": "NODE_ENV=development webpack src/LoadingOverlay.js umd/LoadingOverlay.js",
-    "build-min": "NODE_ENV=production webpack src/LoadingOverlay.js umd/LoadingOverlay.min.js",
+    "build-umd": "NODE_ENV=development webpack src/LoadingOverlay.js -o umd/LoadingOverlay.js",
+    "build-min": "NODE_ENV=production webpack src/LoadingOverlay.js -o umd/LoadingOverlay.min.js",
     "storybook": "start-storybook -p 9001",
     "lint": "standard",
     "lint-fix": "standard --fix",
@@ -36,28 +36,39 @@
   },
   "homepage": "https://github.com/derrickpelletier/react-loading-overlay#readme",
   "dependencies": {
+    "emotion": "^10.0.1",
     "prop-types": "^15.6.2",
-    "react-transition-group": "^2.5.0",
-    "styled-components": "^4.1.2"
+    "react-transition-group": "^2.5.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.6",
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.2.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-syntax-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    "@storybook/addon-actions": "^4.0.10",
     "@storybook/react": "^4.0.10",
-    "babel-core": "^6.26.3",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
-    "enzyme": "^3.7.0",
     "jest": "^23.6.0",
     "react": "^16.6.3",
     "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.6.3",
-    "react-test-renderer": "^16.6.3",
+    "regenerator-runtime": "^0.13.1",
     "rimraf": "^2.6.2",
     "standard": "^12.0.1",
-    "webpack": "^4.26.1"
+    "styled-components": "^4.1.2",
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2"
   },
   "peerDependencies": {
     "react": "^0.14 || ^15.0.0-rc || ^15.0 || ^16.0.0 || ^16.0",
     "react-dom": "^0.14 || ^15.0.0-rc || ^15.0 || ^16.0.0 || ^16.0"
+  },
+  "standard": {
+    "parser": "babel-eslint"
   }
 }
