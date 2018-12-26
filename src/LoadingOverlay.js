@@ -72,7 +72,7 @@ class LoadingOverlayWrapper extends Component {
         className={
           this.cx(
             ['wrapper', active && 'wrapper--active'],
-            css(this.getStyles('wrapper', active && overflowCSS)),
+            css(this.getStyles('wrapper', active ? overflowCSS : {})),
             className
           )
         }
