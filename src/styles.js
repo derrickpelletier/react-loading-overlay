@@ -45,7 +45,8 @@ export default {
     opacity: (state === 'entering' || state === 'entered') ? 1 : 0
   }),
   content: () => ({
-    margin: 'auto'
+    margin: 'auto',
+    display: 'flex'
   }),
   spinner: (state) => ({
     position: 'relative',
