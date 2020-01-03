@@ -1,9 +1,13 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { css } from 'emotion'
 
-const Spinner = ({ getStyles, cx }) => (
-  <div className={cx('spinner', css(getStyles('spinner')))}>
+type SpinnerProps = {
+    getStyles: (key: string) => TemplateStringsArray,
+    cx: (name: string, arg2: any) => string
+}
+
+const Spinner: React.FC<SpinnerProps> = props => (
+  <div className={props.cx('spinner', css(props.getStyles('spinner')))}>
     <svg viewBox='25 25 50 50'>
       <circle
         cx='50'
@@ -16,10 +20,5 @@ const Spinner = ({ getStyles, cx }) => (
     </svg>
   </div>
 )
-
-Spinner.propTypes = {
-  getStyles: PropTypes.func.isRequired,
-  cx: PropTypes.func.isRequired
-}
 
 export default Spinner

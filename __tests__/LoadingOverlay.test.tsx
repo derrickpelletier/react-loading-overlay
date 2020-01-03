@@ -7,8 +7,10 @@ jest.useFakeTimers()
 
 afterEach(cleanup)
 
-class DelayedInactive extends Component {
-  constructor (props) {
+class DelayedInactive extends Component<any, {active: boolean}> {
+  timer: any;
+
+  constructor (props: any) {
     super(props)
     this.state = { active: true }
   }

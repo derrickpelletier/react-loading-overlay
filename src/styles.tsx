@@ -1,4 +1,5 @@
 import { keyframes } from 'emotion'
+import { LoadingOverLayProps, OverflowCSS } from './LoadingOverlayTypes'
 
 const rotate360 = keyframes`
   from {
@@ -24,12 +25,16 @@ const spinnerDash = keyframes`
   }
 `
 
-export default {
-  wrapper: (state) => ({
+type Styles = {
+    [key: string]: any
+}
+
+const styles: Styles = {
+  wrapper: (state: OverflowCSS) => ({
     position: 'relative',
     ...state
   }),
-  overlay: (state, props) => ({
+  overlay: (state: string, props: LoadingOverLayProps) => ({
     position: 'absolute',
     height: '100%',
     width: '100%',
@@ -47,7 +52,7 @@ export default {
   content: () => ({
     margin: 'auto'
   }),
-  spinner: (state) => ({
+  spinner: () => ({
     position: 'relative',
     margin: '0px auto 10px auto',
     width: '50px',
@@ -78,3 +83,5 @@ export default {
     }
   })
 }
+
+export default styles

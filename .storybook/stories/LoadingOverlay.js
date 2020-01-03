@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import styled from 'styled-components'
-import LoadingOverlay from '../../src/LoadingOverlay.js'
+import LoadingOverlay from '../../src/LoadingOverlay.tsx'
 
 const wrapped = (
   <div style={{padding: '20px', background: '#FFF'}}>
