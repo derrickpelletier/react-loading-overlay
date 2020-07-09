@@ -82,6 +82,7 @@ class LoadingOverlayWrapper extends Component {
           classNames='_loading-overlay-transition'
           timeout={fadeSpeed}
           unmountOnExit
+          nodeRef={this.wrapper}
         >
           {state => (
             <div
