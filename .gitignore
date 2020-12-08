@@ -5,3 +5,4 @@ lib
 umd
 npm-debug.log
 dist
+.idea

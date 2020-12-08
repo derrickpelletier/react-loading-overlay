@@ -1,6 +1,6 @@
 var config = {
   mode: process.env.NODE_ENV,
-  entry: './src/LoadingOverlay.js',
+  entry: './src/LoadingOverlay',
   output: {
     library: 'LoadingOverlay',
     libraryTarget: 'umd'
@@ -18,10 +18,15 @@ var config = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        // Include ts, tsx, js, and jsx files.
+        test: /\.(ts|js)x?$/,
+        exclude: /node_modules/,
         use: 'babel-loader'
       }
     ]
+  },
+  resolve: {
+    extensions: [ '.tsx', '.ts', '.js' ]
   }
 }
 
