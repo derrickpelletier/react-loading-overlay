@@ -2,6 +2,7 @@
   "name": "react-loading-overlay",
   "version": "1.0.1",
   "description": "Loading overlays with fade, spinner, message support.",
+  "license": "MIT",
   "keywords": [
     "react",
     "loading",
