@@ -20,7 +20,8 @@
     "storybook": "start-storybook -p 9001",
     "lint": "standard",
     "lint-fix": "standard --fix",
-    "test": "jest"
+    "test": "jest",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
