@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { CSSTransition } from 'react-transition-group'
-import { css, cx } from 'emotion'
+import { css, cx } from '@emotion/css'
 
 import Spinner from './components/Spinner'
 import STYLES from './styles'
