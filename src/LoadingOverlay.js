@@ -115,10 +115,10 @@ LoadingOverlayWrapper.propTypes = {
   spinner: PropTypes.oneOfType([ PropTypes.bool, PropTypes.node ]),
   text: PropTypes.node,
   styles: PropTypes.shape({
-    content: PropTypes.function,
-    overlay: PropTypes.function,
-    spinner: PropTypes.function,
-    wrapper: PropTypes.function
+    content: PropTypes.func,
+    overlay: PropTypes.func,
+    spinner: PropTypes.func,
+    wrapper: PropTypes.func
   })
 }
 
